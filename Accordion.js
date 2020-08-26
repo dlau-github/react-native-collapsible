@@ -33,6 +33,7 @@ export default class Accordion extends Component {
     sectionContainerStyle: ViewPropTypes.style,
     containerStyle: ViewPropTypes.style,
     renderAsFlatList: PropTypes.bool,
+    refreshControl: PropTypes.element
   };
 
   static defaultProps = {
@@ -47,6 +48,7 @@ export default class Accordion extends Component {
     numColumns: 1,
     sectionContainerStyle: {},
     renderAsFlatList: false,
+    refreshControl: null
   };
 
   _toggleSection(section) {
@@ -122,6 +124,7 @@ export default class Accordion extends Component {
       keyExtractor,
       renderContent,
       renderAsFlatList,
+      refreshControl
     } = this.props;
 
     const renderCollapsible = (section, key) => (
@@ -147,6 +150,7 @@ export default class Accordion extends Component {
             const key = keyExtractor(item, index);
             return this._renderContainer(section, key, renderCollapsible);
           }}
+          refreshControl={refreshControl}
           {...viewProps}
         />
       );
