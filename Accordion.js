@@ -40,7 +40,7 @@ export default class Accordion extends Component {
     disabled: false,
     expandFromBottom: false,
     expandMultiple: false,
-    touchableComponent: () => TouchableHighlight,
+    touchableComponent: (props) => <TouchableHighlight {...props} />,
     keyExtractor: (item, index) => index.toString(),
     renderSectionTitle: () => null,
     onAnimationEnd: () => null,
